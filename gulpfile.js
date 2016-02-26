@@ -1,6 +1,6 @@
 var gulp = require('gulp'),
     one = require('one-gulp'),
-    karma = require('karma').server;
+    Server = require('karma').Server;
 
 one.init(gulp, {
     // look at options documentation for details
@@ -20,8 +20,19 @@ one.link(one.transforms.babel).to(one.transforms.sortJsByDepth);
 one.link(one.transforms.babel).to(one.outputs.writeToDev);
 
 gulp.task('test', (done) => {
-    karma.start({
+    server  = new Server({
         configFile: __dirname + '/karma.conf.js',
         singleRun: true
     }, done);
+
+    server.start();
+});
+
+gulp.task('test:watch', (done) => {
+    server  = new Server({
+        configFile: __dirname + '/karma.conf.js',
+        singleRun: false
+    }, done);
+
+    server.start();
 });

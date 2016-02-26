@@ -23,7 +23,7 @@
         });
 
         // DialogBox
-        this.showConfirmDelete = function(ev, articleToDel) {
+        this.showConfirmDelete = (ev, articleToDel)=> {
             // Appending dialog to document.body to cover sidenav in docs app
             var confirm = $mdDialog.confirm()
                 .title('Would you like to delete this card '+articleToDel.titre+' ?')
