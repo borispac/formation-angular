@@ -1,0 +1,11 @@
+<section layout="row" layout="row" layout-align="start center" layout-wrap>
+        <md-switch  ng-repeat='category in $ctrl.categoriesExtended'
+                    class="md-primary"
+                    md-no-ink
+                    aria-label="category.category.title"
+                    ng-change="$ctrl.clickCategory()"
+                    ng-model= "category.selected"
+                    >
+            {{category.category.title}}
+        </md-switch>
+</section>

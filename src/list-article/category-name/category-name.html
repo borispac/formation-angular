@@ -1,0 +1,16 @@
+<div ng-if="$ctrl.editMod">
+
+    <md-input-container>
+        <label>Category</label>
+        <md-select ng-model="$ctrl.categoryLinked" ng-model-options="{trackBy: '$value.id'}">
+            <md-option></md-option>
+            <md-option ng-value="category" ng-repeat="category in $ctrl.categories">
+                {{category.title}}
+            </md-option>
+        </md-select>
+    </md-input-container>
+</div>
+
+<div ng-if="!$ctrl.editMod">
+    {{$ctrl.categoryLinked.title}}
+</div>

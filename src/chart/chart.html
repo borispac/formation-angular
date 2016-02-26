@@ -1,0 +1,10 @@
+<menubar></menubar>
+<md-content layout-wrap layout="column" layout-align="center center" style="background-color:transparent;" class="chartContainer">
+    <md-card >
+        <md-card-content layout="column" >
+                 <highchart id="chart1" config="$ctrl.chartConfig" class="span10"></highchart>
+        </md-card-content>
+        <md-divider></md-divider>
+        <md-button  class="md-raised md-primary" ng-click = '$ctrl.addData()'>Add data</md-button>
+    </md-card>
+</md-content>

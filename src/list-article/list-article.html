@@ -1,0 +1,95 @@
+<!-- ToDo : Couper en deux modules  -->
+<!-- ToDo  -->
+
+<md-content layout-wrap flex layout-gt-sm="row" layout="column" style="background-color:transparent">
+    <div flex="33" ng-repeat="articleCard in $ctrl.articlesCard | limitTo:3:$ctrl.page">
+        <md-card ng-if="!articleCard.editMod" style="height:400px;">
+            <!-- <img src="" class="" alt=""> -->
+            <md-card-header>
+                <md-card-header-text>
+                    <span class="md-title">{{$index+1}} : {{articleCard.article.titre}}</span>
+                    <span class="md-subhead"><category-name category-linked="articleCard.article.category" edit-mod="articleCard.editMod"></category-name></span>
+                </md-card-header-text>
+            </md-card-header>
+
+            <md-divider></md-divider>
+
+            <md-card-content>
+                <p class="md-body-1">{{articleCard.article.contenuHtml}}</p>
+                <!-- With HTML Interpretation, require ngsanitize -->
+                <!-- <p class="md-body-1" ng-bind-html='articleCard.article.contenuHtml'></p> -->
+            </md-card-content>
+
+            <md-card-footer>
+                <md-card-actions layout="row" layout-align="end center">
+
+                    <md-button class="md-fab md-primary md-mini" aria-label="edit" ng-click='$ctrl.modEdit(articleCard)'>
+                        <md-tooltip md-direction="bottom">
+                            Edit
+                        </md-tooltip>
+                        <md-icon md-font-icon="icon-mode_edit" style="width: 24px; height: 24px; font-size:24px">
+                        </md-icon>
+                    </md-button>
+
+                    <md-button class="md-fab md-hue-2  md-mini" aria-label="delete" ng-click='$ctrl.showConfirmDelete($event, articleCard.article)'>
+                        <md-tooltip md-direction="bottom">
+                            Delete
+                        </md-tooltip>
+                        <md-icon md-font-icon="icon-delete" style="width: 24px; height: 24px; font-size:24px">
+                        </md-icon>
+                    </md-button>
+
+                </md-card-actions>
+            </md-card-footer>
+        </md-card>
+        <!--  -->
+        <form name="a_{{articleCard.article.id}}" ng-submit="$ctrl.valid(articleCard)">
+            <md-card ng-if="articleCard.editMod" style="height:400px;">
+                <md-card-header>
+                    <md-card-header-text>
+                        <span class="md-title">
+                            <md-input-container>
+                              <label>{{$index+1}} : Title</label>
+                              <input type="text" ng-model="articleCard.article.titre" required md-maxlength="15" md-autofocus>
+                            </md-input-container>
+                        <span class="md-subhead"><category-name category-linked="articleCard.article.category"  edit-mod="articleCard.editMod"></category-name></span>
+                    </md-card-header-text>
+                </md-card-header>
+
+                <md-divider></md-divider>
+
+                <md-card-content>
+                    <span class="md-body-1">
+                        <md-input-container>
+                            <label>Content (multiline)</label>
+                            <textarea ng-model="articleCard.article.contenuHtml" placeholder="..."></textarea>
+                        </md-input-container>
+                    </span>
+                    <!-- With HTML Interpretation, require ngsanitize -->
+                    <!-- <p class="md-body-1" ng-bind-html='articleCard.article.contenuHtml'></p> -->
+                </md-card-content>
+
+                <md-card-footer>
+                    <md-card-actions layout="row" layout-align="end center">
+                        <md-button type="submit" class="md-fab md-primary md-mini" aria-label="valid">
+                            <md-tooltip md-direction="bottom">
+                                Valid
+                            </md-tooltip>
+                            <md-icon md-font-icon="icon-check" style="width: 24px; height: 24px; font-size:24px">
+                            </md-icon>
+                        </md-button>
+
+                        <md-button class="md-fab md-hue-2  md-mini" aria-label="delete" ng-click='$ctrl.showConfirmDelete($event, articleCard.article)'>
+                            <md-tooltip md-direction="bottom">
+                                Delete
+                            </md-tooltip>
+                            <md-icon md-font-icon="icon-delete" style="width: 24px; height: 24px; font-size:24px">
+                            </md-icon>
+                        </md-button>
+                    </md-card-actions>
+                </md-card-footer>
+            </md-card>
+        </form>
+
+    </div>
+</md-content>

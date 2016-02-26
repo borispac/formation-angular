@@ -1,0 +1,26 @@
+<md-content layout-wrap layout="column" layout-align="center center" style="background-color:transparent; with: 100vw; height:100vh;">
+    <!-- <form name="login" ng-submit="$ctrl.auth($ctrl.login, $ctrl.password)"> -->
+    <form name="login" ng-submit="$ctrl.auth()">
+        <md-card style="height:400px; width: 400px">
+            <md-card-content layout="column">
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">Login</span>
+                        <span class="md-subhead">Blabla bla</span>
+                    </md-card-title-text>
+                </md-card-title>
+                <md-input-container>
+                    <label>Login</label>
+                    <input type="text" ng-model="$ctrl.login">
+                </md-input-container>
+                <md-input-container>
+                    <label>Password</label>
+                    </label>
+                    <input type="password" ng-model="$ctrl.password">
+                </md-input-container>
+                <span class="md-caption" style="color:red" ng-if="$ctrl.loginError">Hoy, type again :)</span>
+                <md-button type="submit" class="md-raised md-primary">Login</md-button>
+            </md-card-content>
+        </md-card>
+    </form>
+</md-content>

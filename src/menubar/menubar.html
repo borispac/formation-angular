@@ -1,0 +1,30 @@
+<md-toolbar md-scroll-shrink="" class="md-whiteframe-5dp">
+    <div class="md-toolbar-tools">
+        <h3><span>Formation Angular</span></h3>
+        <md-menu>
+            <md-button class="md-icon-button" aria-label="menu" ng-click="$mdOpenMenu($event)">
+                <md-icon md-font-icon="icon-more_vert" style=" width:24px; height:24px;font-size:24px;"></md-icon>
+            </md-button>
+            <md-menu-content width="5">
+                <md-menu-item>
+                    <md-button ui-sref ="main">
+                        <md-icon md-menu-origin md-font-icon="icon-format_list_bulleted" style=" width:24px; height:24px;font-size:24px;"></md-icon>
+                        Article list
+                    </md-button>
+                </md-menu-item>
+                <md-menu-item>
+                    <md-button ui-sref="chart">
+                        <md-icon md-menu-align-target md-font-icon="icon-show_chart" style=" width:24px; height:24px;font-size:24px;"></md-icon>
+                        Chart (WebSocket)
+                    </md-button>
+                </md-menu-item>
+                <md-menu-item>
+                    <md-button ui-sref="chartExternal">
+                        <md-icon md-menu-align-target md-font-icon="icon-show_chart" style=" width:24px; height:24px;font-size:24px;"></md-icon>
+                        Custom chart
+                    </md-button>
+                </md-menu-item>
+            </md-menu-content>
+        </md-menu>
+    </div>
+</md-toolbar>
